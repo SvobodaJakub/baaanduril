@@ -21,15 +21,14 @@
 // channel modes...
 // CM_CH1, CM_CH2, CM_BOTH, CM_BLEND, CM_AUTO
 // enable max brightness out of the box
-#define DEFAULT_CHANNEL_MODE           CM_BLEND
+#define DEFAULT_CHANNEL_MODE           CM_CH1
 
 #define USE_CONFIG_COLORS
 
-// blink numbers on the main LEDs by default (but allow user to change it)
-#define DEFAULT_BLINK_CHANNEL  CM_BLEND
+// blink numbers on the aux LEDs by default
+#define DEFAULT_BLINK_CHANNEL  CM_AUXWHT
 
-#define POLICE_COLOR_STROBE_CH1        CM_CH1
-#define POLICE_COLOR_STROBE_CH2        CM_CH2
+
 
 // how much to increase total brightness at middle tint
 // (0 = 100% brightness, 64 = 200% brightness)
@@ -58,26 +57,20 @@
 #define HALFSPEED_LEVEL    10
 #define QUARTERSPEED_LEVEL 2
 
-#define RAMP_SMOOTH_FLOOR  10  // level 1 is unreliable (?)
-#define RAMP_SMOOTH_CEIL   130
-// 10, 30, 50, [70], 90, 110, [130]
-#define RAMP_DISCRETE_FLOOR 10
-#define RAMP_DISCRETE_CEIL  RAMP_SMOOTH_CEIL
-#define RAMP_DISCRETE_STEPS 7
+#define RAMP_SMOOTH_FLOOR    1
+#define RAMP_SMOOTH_CEIL     134
+#define RAMP_DISCRETE_FLOOR  3
+#define RAMP_DISCRETE_CEIL   134
+#define RAMP_DISCRETE_STEPS  8
 
-// safe limit highest regulated power (no FET or turbo)
-// 10, 40, [70], 100, 130
-#define SIMPLE_UI_FLOOR  RAMP_DISCRETE_FLOOR
-#define SIMPLE_UI_CEIL   RAMP_DISCRETE_CEIL
-#define SIMPLE_UI_STEPS  5
+#define SIMPLE_UI_FLOOR  3
+#define SIMPLE_UI_CEIL   134
+#define SIMPLE_UI_STEPS  8
 
 // stop panicking at ~1500 lm
 #define THERM_FASTER_LEVEL 130
 #define MIN_THERM_STEPDOWN 65  // should be above highest dyn_pwm level
 
-#define USE_POLICE_COLOR_STROBE_MODE
-#undef  TACTICAL_LEVELS
-#define TACTICAL_LEVELS 130,30,(RAMP_SIZE+3)  // high, low, police strobe
 
 // use the brightest setting for strobe
 #define STROBE_BRIGHTNESS MAX_LEVEL
@@ -99,3 +92,4 @@
 #undef BLINK_AT_RAMP_MIDDLE
 #endif
 
+#define DEFAULT_STROBE_CHANNELS  CM_BLEND,CM_BLEND,CM_BLEND,CM_CH2,CM_BLEND

@@ -53,10 +53,11 @@ enum channel_modes_e {
 };
 
 // right-most bit first, modes are in fedcba9876543210 order
-#define CHANNEL_MODES_ENABLED 0b0000000000011111
+#define CHANNEL_MODES_ENABLED 0b0000000000001011 // CH1, CH2, BLEND
 #define USE_CHANNEL_MODE_ARGS
 // _, _, _, 128=middle CCT, 0=warm-to-cool
-#define CHANNEL_MODE_ARGS     0,0,0,128,0,RGB_AUX_CM_ARGS
+// EDIT: 64 for 25% of CH2
+#define CHANNEL_MODE_ARGS     0,0,0,64,0,RGB_AUX_CM_ARGS
 
 // can use some of the common handlers
 #define USE_CALC_2CH_BLEND

@@ -1,3 +1,64 @@
+# baaAnduril: TS10 & TS25 & SP10Pro & D3AA & D2 Anti-dog and anti-car simple low-consumption hacks upon Anduril 2 Flashlight Firmware and FSM UI Toolkit
+
+# 🐑
+
+- TS10v1 & TS25: Fet PWM timing reduced to about 85% of the original, IDK if that gives 85% of the output, but it is noticeably less hot and TS10v1 turbo and strobe now runs on a protected 3A cell.
+- For TS10v2, use the lowfet build, that also works with a protected 3A cell. (HD10 turbo current measurement with a multimeter showed roughly between 2A to 3A if I remember correctly.)
+- New defaults:
+    - Steps 1-7 have a bit lower intensity than the usual defaults.
+        - Step 1 intensity 1/150 (Hank: 3/150) instead of usual 10/150.
+        - Step 7 intensity 118/150 instead of usual 130/150.
+    - Step 8 instead of turbo in simple mode, intensity 134/150.
+    - The reason is that after a while, eyes adapt and the intensity is subjectively very similar, but the runtimes are now improved.
+    - No turbo in simple mode (except for SP10Pro, set to the least-accessible turbo).
+    - Very low thermal ceiling, set to 39°C (102°F), to prevent low-temperature burns and provide longer runtimes.
+    - Tactical (6C) mode new defaults:
+        - 1H: Strobe. A very contentious topic, but from my personal experience, it helped me to deter a dog to come too close.
+        - 2H: Bike flasher. I use it to shine at the ground while crossing a particular sidewalk at night, which is at a bad spot and people get killed there regularly. The brightness variance is enough to draw attention, but not too disorienting to hurt drivers' perceptions nor reactions. **Do not shine at drivers, when in a city with many lights, it could make the user indistinguishable from a nonanimate object at an unrecognizable distance and could hide the user via the photonic barrier effect.**
+        - 3H: Step 7 steady light for quick inspections.
+    - Auto-lockout after 1 minute, brightness memory for 1 minute.
+    - Default brightness around level 5 (goes to level 5 on the stepped ramp).
+    - Stepped ramp.
+    - Simple UI after reset.
+    - No police strobe.
+    - RGB-Aux shows voltage, high brightness when not locked, low brightness when locked (disabled in kids mode).
+    - I like these defaults and having them set automatically on reset is convenient. If not your cup of tea (likely), the commit diff shows what to tweak probably quicker than discovering it independently.
+- Ultra simple/kids mode (13+C in simple UI reconfigures simple mode to a single brightness at around step 4, no auto-lockout).
+- Non-extended simple UI (no 3H, no 7C, no 7H) with nonconfigurable tactical mode (6C works, but 7H within doesn't).
+- Tactical (6C) mode enabled in simple UI if simple UI is configured with 4 or more steps.
+- SP10Pro: shortcut to reconfigure ramp to Li-Ion equivalent brightness 1-5 for NiMH (13+C in advanced UI)
+- The hacks are not sophisticated, likely broken for other models than TS10 & TS25 & SP10Pro & D3AA ( & yet-untested D2, waiting for flashing adapter), and not maintainable nor upstreamable. Made while being sleep-deprived.
+
+- Approximate battery life for TS10 with the default Wurkkos 14500 (about 700 mAh):
+    - Step 6: approx 1 hour
+    - Step 5: approx 3 hours
+    - Step 4: approx 11 hours
+    - Step 3: approx 36 hours
+    - Step 2: a week at minimum (didn't run the test longer yet)
+
+- Approximate battery life for SP10Pro with white Eneloop and with the NiMH ramp set:
+    - Step 6: approx 1 hour
+    - Step 5: approx 2 hours
+    - Step 4: approx 7 hours
+    - Step 3: approx 15 hours
+    - Step 2: approx 3 days
+
+- Approximate battery life for D2 with Vapcell H10 (I don't have the flashing kit, test based on setting the default Anduril, which should be identical):
+    - Step 6: approx 2h:20m
+    - Step 5: approx 4 hours
+    - Step 4: approx 11 hours
+
+- The brightness levels 1-5 are subjectively roughly comparable across all the listed flashlights, as long as D3AA runs on NiMH.
+
+- No measurements with D3AA, didn't play much with it.
+
+- Binary builds in the [`/hex`](https://github.com/SvobodaJakub/baaanduril/tree/trunk/hex) directory (not the proper place to put them in, but this is not meant for upstreaming nor being taken seriously, also sleep deprived).
+
+
+The original README.md follows:
+
+---
+
 # Anduril Flashlight Firmware + FSM Flashlight UI Toolkit
 
 Anduril is a user interface for flashlights.  It is written with FSM, a UI

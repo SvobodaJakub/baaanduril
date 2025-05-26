@@ -11,7 +11,8 @@
 
 uint8_t candle_mode_state(Event event, uint16_t arg) {
     static int8_t ramp_direction = 1;
-    #define MAX_CANDLE_LEVEL (MAX_LEVEL-CANDLE_AMPLITUDE-15)
+	// EDIT: Severely reduce candle max to prevent overheating
+    #define MAX_CANDLE_LEVEL (MAX_LEVEL-CANDLE_AMPLITUDE-15-70)
     static uint8_t candle_wave1 = 0;
     static uint8_t candle_wave2 = 0;
     static uint8_t candle_wave3 = 0;

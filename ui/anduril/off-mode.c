@@ -236,8 +236,47 @@ uint8_t off_state(Event event, uint16_t arg) {
     #ifdef USE_VERSION_CHECK
     // 15+ clicks: show the version number
     else if (event == EV_15clicks) {
+if (cfg.simple_ui_active) {
+// kid mode
+#ifdef USE_INDICATOR_LED
+cfg.indicator_led_mode = ((1<<2) + 0);
+#endif
+#ifdef USE_AUX_RGB_LEDS
+cfg.rgb_led_off_mode = 0;
+#endif
+cfg.autolock_time = 0;
+cfg.manual_memory = 51;
+cfg.ramp_floors[2] = 51;
+cfg.ramp_ceils[2] = 51;
+cfg.ramp_stepss[2] = 1;
+#ifdef USE_AUX_RGB_LEDS
+cfg.post_off_voltage = 0;
+#endif
+cfg.smooth_steps_style = 1;
+cfg.ramp_2c_style_simple = 0;
+save_config();
+return EVENT_HANDLED;
+} else {
+
+#ifdef THIS_IS_A_CUSTOM_TWEAKED_SP10PRO
+// set ramps for NiMH battery with perceived brightness levels 1-5 similar to Li-Ion SP10Pro and similar to TS10
+cfg.manual_memory = 94;
+cfg.ramp_floors[0] = 1;
+cfg.ramp_ceils[0] = 140;
+cfg.ramp_stepss[0] = 7;
+cfg.ramp_floors[1] = 1;
+cfg.ramp_ceils[1] = 140;
+cfg.ramp_stepss[1] = 7;
+cfg.ramp_floors[2] = 1;
+cfg.ramp_ceils[2] = 140;
+cfg.ramp_stepss[2] = 7;
+save_config();
+
+#endif
+
         set_state(version_check_state, 0);
         return EVENT_HANDLED;
+}
     }
     #endif
 
@@ -259,6 +298,19 @@ uint8_t off_state(Event event, uint16_t arg) {
 
     #ifndef USE_EXTENDED_SIMPLE_UI
     if (cfg.simple_ui_active) {
+
+        #ifdef USE_TACTICAL_MODE
+        // 6 clicks: tactical mode in simple nonextended mode if simple has more than 3 steps
+        if (event == EV_6clicks) {
+            if (cfg.ramp_stepss[2] > 3) {
+            blink_once();
+            set_state(tactical_state, 0);
+            return EVENT_HANDLED;
+            }
+        }
+        #endif
+
+
         return EVENT_NOT_HANDLED;
     }
     #endif  // ifndef USE_EXTENDED_SIMPLE_UI

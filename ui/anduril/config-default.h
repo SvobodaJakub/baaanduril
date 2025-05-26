@@ -201,7 +201,7 @@
 
 // if there's tint ramping, allow user to set it smooth or stepped
 #define USE_STEPPED_TINT_RAMPING
-#define DEFAULT_TINT_RAMP_STYLE 0  // smooth
+#define DEFAULT_TINT_RAMP_STYLE 5  // 5 steps (0%, 25%, 50%, 75%, 100%)
 
 // Use "smooth steps" to soften on/off and step changes
 // on MCUs with enough room for extra stuff like this
@@ -209,7 +209,7 @@
 #define USE_SMOOTH_STEPS
 #endif
 // 0 = none, 1 = smooth, 2+ = undefined
-#define DEFAULT_SMOOTH_STEPS_STYLE  1
+#define DEFAULT_SMOOTH_STEPS_STYLE  0
 
 // by default, allow user to set the channel for each strobe-group mode
 // (but allow disabling this feature per build)

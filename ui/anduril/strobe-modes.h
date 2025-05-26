@@ -61,7 +61,8 @@ inline void lightning_storm_iter();
         #undef DEFAULT_BIKING_LEVEL
         #define DEFAULT_BIKING_LEVEL  MAX_BIKING_LEVEL
     #endif
-    #define MAX_BIKING_LEVEL 120  // should be 127 or less
+	// EDIT: Reduce maximum brightness to prevent rapid overheating
+    #define MAX_BIKING_LEVEL 110  // should be 127 or less
     inline void bike_flasher_iter();
 #endif  // ifdef USE_BIKE_FLASHER_MODE
 

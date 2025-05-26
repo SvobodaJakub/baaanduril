@@ -38,7 +38,7 @@
 #define MAX_1x7135            40
 #define HDR_ENABLE_LEVEL_MIN  41
 
-#define DEFAULT_LEVEL         50
+#define DEFAULT_LEVEL         70
 
 // no PWM, so MCU clock speed can be slow
 #define HALFSPEED_LEVEL      41
@@ -49,16 +49,20 @@
 #define WEAK_BATTERY_TEST_MAX_LEVEL       75
 
 #define RAMP_SMOOTH_FLOOR    1
-#define RAMP_SMOOTH_CEIL     130  // 50% power
-// 10 30 [50] 70 90 110 130
-#define RAMP_DISCRETE_FLOOR  10
-#define RAMP_DISCRETE_CEIL   130
-#define RAMP_DISCRETE_STEPS  7
+#define RAMP_SMOOTH_CEIL     134
+#define RAMP_DISCRETE_FLOOR  3
+#define RAMP_DISCRETE_CEIL   134
+#define RAMP_DISCRETE_STEPS  8
 
-// 10 [40] 70 100 130
-#define SIMPLE_UI_FLOOR      10
-#define SIMPLE_UI_CEIL       130
-#define SIMPLE_UI_STEPS      5
+#define SIMPLE_UI_FLOOR  3
+#define SIMPLE_UI_CEIL   134
+#define SIMPLE_UI_STEPS  8
+
+
+
+
+
+
 
 // don't blink mid-ramp
 #ifdef BLINK_AT_RAMP_MIDDLE
@@ -77,8 +81,9 @@
 // Allow 3C in Simple UI for switching between smooth and stepped ramping
 #define USE_SIMPLE_UI_RAMPING_TOGGLE
 
-#define DEFAULT_2C_STYLE 1 // enable 2 click turbo
+#define DEFAULT_2C_STYLE 2 // not easily accessible turbo
 
+#define DEFAULT_2C_STYLE_SIMPLE 0  // no turbo at all in simple
 
 // AUX
 
@@ -90,14 +95,10 @@
 // show each channel while it scroll by in the menu
 #define USE_CONFIG_COLORS
 
-// blink numbers on the main LEDs by default (but allow user to change it)
-#define DEFAULT_BLINK_CHANNEL  CM_MAIN
+// blink numbers on the aux LEDs by default
+#define DEFAULT_BLINK_CHANNEL  CM_AUXWHT
 
-// use aux red + aux blue for police strobe
-#define USE_POLICE_COLOR_STROBE_MODE
-#define POLICE_STROBE_USES_AUX
-#define POLICE_COLOR_STROBE_CH1        CM_AUXRED
-#define POLICE_COLOR_STROBE_CH2        CM_AUXBLU
+
 
 // the aux LEDs are front-facing, so turn them off while main LEDs are on
 #ifdef USE_INDICATOR_LED_WHILE_RAMPING

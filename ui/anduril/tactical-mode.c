@@ -81,14 +81,14 @@ uint8_t tactical_state(Event event, uint16_t arg) {
     }
 
     ////////// Every action below here is blocked in the simple UI //////////
-    // (unnecessary since this entire mode is blocked in simple UI)
-    /*
+    // (unnecessary since this entire mode is blocked in simple UI) -> EDIT: Actually, enabled in simple mode
+    
     #ifdef USE_SIMPLE_UI
     if (cfg.simple_ui_active) {
         return EVENT_NOT_HANDLED;
     }
     #endif
-    */
+    
 
     // 7H: configure tactical mode
     else if (event == EV_click7_hold) {

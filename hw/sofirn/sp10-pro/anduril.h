@@ -19,30 +19,19 @@
 #define MAX_1x7135         15
 #define HALFSPEED_LEVEL    15
 #define QUARTERSPEED_LEVEL 15
-#define DEFAULT_LEVEL      50
+#define DEFAULT_LEVEL      68
 
 #define RAMP_SMOOTH_FLOOR    1
-#define RAMP_SMOOTH_CEIL     150
-// 1 25 50 [75] 100 125 150
+#define RAMP_SMOOTH_CEIL     134
 #define RAMP_DISCRETE_FLOOR  1
-#define RAMP_DISCRETE_CEIL   RAMP_SMOOTH_CEIL
-#define RAMP_DISCRETE_STEPS  7
+#define RAMP_DISCRETE_CEIL   134
+#define RAMP_DISCRETE_STEPS  8
 
-// at Sofirn's request, use max (150) for the Simple UI ceiling
-// 15 48 [82] 116 150
-#define SIMPLE_UI_FLOOR  MAX_1x7135
-#define SIMPLE_UI_CEIL   150
-#define SIMPLE_UI_STEPS   5
+#define SIMPLE_UI_FLOOR  1
+#define SIMPLE_UI_CEIL   134
+#define SIMPLE_UI_STEPS  8
 
-// turn on at ~6 lm by default (level 50/150, or ramp step 2/5 or 3/7)
-// (also sets lockout mode 2H to a useful level)
-#define DEFAULT_MANUAL_MEMORY 50
-// reset to default after being off for 10 minutes
-#define DEFAULT_MANUAL_MEMORY_TIMER 10
 
-// enable SOS in the blinkies group
-#define USE_SOS_MODE
-#define USE_SOS_MODE_IN_BLINKY_GROUP
 
 // Allow 3C in Simple UI for switching between smooth and stepped ramping
 #define USE_SIMPLE_UI_RAMPING_TOGGLE
@@ -62,8 +51,7 @@
 // the default of 26 looks a bit flat, so increase it
 #define CANDLE_AMPLITUDE 50
 
-// enable 2 click turbo (replaces USE_2C_MAX_TURBO)
-#define DEFAULT_2C_STYLE 1
+
 
 // don't blink during the ramp or at the ceiling
 #ifdef BLINK_AT_RAMP_MIDDLE
@@ -76,4 +64,40 @@
 
 // enable factory reset on 13H without loosening tailcap
 #define USE_SOFT_FACTORY_RESET
+
+#define THIS_IS_A_CUSTOM_TWEAKED_SP10PRO
+
+#define DEFAULT_2C_STYLE 2 // not easily accessible turbo
+
+#define DEFAULT_2C_STYLE_SIMPLE 2 // not easily accessible turbo
+
+// DISABLE enable SOS in the blinkies group
+#undef USE_SOS_MODE
+#undef USE_SOS_MODE_IN_BLINKY_GROUP
+
+
+// lower to prevent low-temp tissue burns
+#undef DEFAULT_THERM_CEIL
+#define DEFAULT_THERM_CEIL 39
+
+#undef RAMP_STYLE
+#define RAMP_STYLE 1  // 0 = smooth, 1 = stepped
+
+#define DEFAULT_MANUAL_MEMORY_TIMER 1
+
+#undef USE_EXTENDED_SIMPLE_UI
+
+#undef USE_POLICE_COLOR_STROBE_MODE
+
+#undef  TACTICAL_LEVELS
+#define TACTICAL_LEVELS 152,155,118 // tac strobe, bike strobe (it would be 156 with police strobe compiled in), steady 7/8 (1-134)
+
+#define DEFAULT_AUTOLOCK_TIME 1
+
+#define DEFAULT_BIKING_LEVEL 110
+#define MAX_BIKING_LEVEL 110
+
+#define DEFAULT_DONT_RAMP_AFTER_MOON 1
+
+#define DEFAULT_MANUAL_MEMORY 68
 
