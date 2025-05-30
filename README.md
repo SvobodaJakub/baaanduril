@@ -23,10 +23,10 @@
     - No police strobe.
     - RGB-Aux shows voltage, high brightness when not locked, low brightness when locked (disabled in kids mode).
     - I like these defaults and having them set automatically on reset is convenient. If not your cup of tea (likely), the commit diff shows what to tweak probably quicker than discovering it independently.
-- Ultra simple/kids mode (13+C in simple UI reconfigures simple mode to a single brightness at around step 4, no auto-lockout).
+- Ultra simple/kids mode (15+C in simple UI reconfigures simple mode to a single brightness at around step 4, no auto-lockout).
 - Non-extended simple UI (no 3H, no 7C, no 7H) with nonconfigurable tactical mode (6C works, but 7H within doesn't).
 - Tactical (6C) mode enabled in simple UI if simple UI is configured with 4 or more steps.
-- SP10Pro: shortcut to reconfigure ramp to Li-Ion equivalent brightness 1-5 for NiMH (13+C in advanced UI)
+- SP10Pro: shortcut to reconfigure ramp to Li-Ion equivalent brightness 1-5 for NiMH (15+C in advanced UI)
 - The hacks are not sophisticated, likely broken for other models than TS10 & TS25 & SP10Pro & D3AA ( & yet-untested D2, waiting for flashing adapter), and not maintainable nor upstreamable. Made while being sleep-deprived.
 
 - Approximate battery life for TS10 with the default Wurkkos 14500 (about 700 mAh):
@@ -34,7 +34,7 @@
     - Step 5: approx 3 hours
     - Step 4: approx 11 hours
     - Step 3: approx 36 hours
-    - Step 2: a week at minimum (didn't run the test longer yet)
+    - Step 2: approx a week
 
 - Approximate battery life for SP10Pro with white Eneloop and with the NiMH ramp set:
     - Step 6: approx 1 hour
@@ -42,6 +42,7 @@
     - Step 4: approx 7 hours
     - Step 3: approx 15 hours
     - Step 2: approx 3 days
+    - Step 1: at least 10 days
 
 - Approximate battery life for D2 with Vapcell H10 (I don't have the flashing kit, test based on setting the default Anduril, which should be identical):
     - Step 6: approx 2h:20m
