@@ -26,7 +26,7 @@
 - Ultra simple/kids mode (15+C in simple UI reconfigures simple mode to a single brightness at around step 4, no auto-lockout).
 - Non-extended simple UI (no 3H, no 7C, no 7H) with nonconfigurable tactical mode (6C works, but 7H within doesn't).
 - Tactical (6C) mode enabled in simple UI if simple UI is configured with 4 or more steps.
-- SP10Pro: NiMH shortcut to reconfigure the ramp to a Li-Ion-equivalent brightness (resulting in rough equivalency for steps 1-5) for NiMH power, because SP10Pro is noticeably dimmer in NiMH than on Li-Ion (15+C in advanced UI)
+- SP10Pro: NiMH shortcut to reconfigure the ramp to a Li-Ion-equivalent brightness (resulting in rough equivalency for steps 1-5) for NiMH power, because SP10Pro is noticeably dimmer on NiMH than on Li-Ion (15+C in advanced UI)
 - The hacks are not sophisticated, likely broken for other models than TS10 & TS25 & SP10Pro & D3AA ( & yet-untested D2, waiting for flashing adapter), and not maintainable nor upstreamable. Made while being sleep-deprived.
 
 - Approximate battery life for TS10 with the default Wurkkos 14500 (about 700 mAh):
