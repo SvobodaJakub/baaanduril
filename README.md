@@ -35,6 +35,7 @@
     - Step 4: approx 11 hours
     - Step 3: approx 36 hours
     - Step 2: approx a week
+    - Step 1: at least 7 days
 
 - Approximate battery life for SP10Pro with white Eneloop and with the NiMH ramp set:
     - Step 6: approx 1 hour
@@ -42,7 +43,7 @@
     - Step 4: approx 7 hours
     - Step 3: approx 15 hours
     - Step 2: approx 3 days
-    - Step 1: at least 10 days
+    - Step 1: at least 17 days
 
 - Approximate battery life for D2 with Vapcell H10 (I don't have the flashing kit, test based on setting the default Anduril, which should be identical):
     - Step 6: approx 2h:20m
